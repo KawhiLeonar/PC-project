@@ -31,6 +31,7 @@
 
 <script>
 import { reqUserLogin } from '@/api/user.js'
+import { setUser } from '@/utils/storage.js'
 export default {
   name: 'login',
   data () {
@@ -71,6 +72,7 @@ export default {
         reqUserLogin(this.form.mobile, this.form.code).then(res => {
           console.log('登录成功', res)
           this.$message.success('登录成功')
+          setUser(res.data.data)
           this.$router.push('/')
         }).catch(err => {
           console.log('登录失败', err)
