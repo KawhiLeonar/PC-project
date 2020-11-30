@@ -7,3 +7,10 @@ export const reqGetArticles = (queryObj) => {
     params: queryObj || {}
   })
 }
+
+export const reqGetChannels = () => {
+  return http({
+    method: 'get',
+    url: '/mp/v1_0/channels'
+  })
+}
